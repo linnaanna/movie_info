@@ -1,0 +1,1 @@
+Movie info app for Laurea's Dynamic Web Apps with JavaScript course. Work in progress.
