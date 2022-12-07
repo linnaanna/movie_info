@@ -93,6 +93,7 @@ document.getElementById("ajaxbutton").addEventListener("click", searchData);
     
     let table = "";
     var inputString = String(input);
+    var lowInputString = inputString.toLowerCase();
     
     //table="<tr><th>Valittu leffa:</th><th>"+titleString+"</th></tr>";
    console.log(inputString);
@@ -101,8 +102,9 @@ document.getElementById("ajaxbutton").addEventListener("click", searchData);
     for (let i=0;i<allTitles.length;i++){
        
         let titleString = xmlDoc.getElementsByTagName("Title")[i].childNodes[0].nodeValue;
+        var lowTitleString = titleString.toLowerCase();
 
-        if (titleString.toLowerCase() == inputString.toLowerCase()){  
+        if (lowTitleString.includes(lowInputString)){  
             table="<tr><th>Valittu leffa:"+titleString+"</th></tr>";
             
             table += "<tr><td><img src='"+ xmlDoc.getElementsByTagName("EventSmallImagePortrait")[i].childNodes[0].nodeValue+"'>";
