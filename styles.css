@@ -26,19 +26,22 @@
     padding-top: 40px;
     background-color: rgb(210, 236, 244);
 }   
-
+#tableheader {
+    width: 500px; 
+    align-items: center;
+    position:absolute;
+    left:300px;
+    background:rgb(248, 187, 187); 
+    font-weight: bolder;
+}
 #table {
     
     font-family: Arial, Helvetica, sans-serif;
     width: 500px; 
-   align-items: center;
-  
-   position:absolute;
- left:300px;
-   
- 
+    align-items: center;
+    position:absolute;
+    left:300px;
     background:rgb(248, 187, 187); 
-    
     }
 
 
@@ -48,9 +51,6 @@
     top: 50px;
     font-family: Arial, Helvetica, sans-serif;
     width: 300px; 
-    
-    
-  
     left: 900px;
     background:rgb(176, 247, 176); 
    

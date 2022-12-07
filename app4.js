@@ -23,6 +23,7 @@ function getMovies(){
         document.getElementById("table").innerHTML = "";
 // use getElementsByTagName to find titles in data 
 document.getElementById("table").innerHTML = "";
+document.getElementById("tableheader").innerHTML = "";
 let table="<tr><th>Valittu teatteri:</th><th>"+theatrename+"</th></tr>";
 
 for (let i = 0; i < alltitles.length; i++) { 
@@ -105,20 +106,33 @@ document.getElementById("ajaxbutton").addEventListener("click", searchData);
         var lowTitleString = titleString.toLowerCase();
 
         if (lowTitleString.includes(lowInputString)){  
-            table="<tr><th>Valittu leffa:"+titleString+"</th></tr>";
+            tableheader = "<hr><td>"+titleString+"</td></hr>";
             
-            table += "<tr><td><img src='"+ xmlDoc.getElementsByTagName("EventSmallImagePortrait")[i].childNodes[0].nodeValue+"'>";
+            table = "<tr><td><img src='"+ xmlDoc.getElementsByTagName("EventSmallImagePortrait")[i].childNodes[0].nodeValue+"'>";
             table += "</td><td>"
 
-            table += "<tr><td>" + 
-            allTitles[i].getElementsByTagName("TheatreAndAuditorium")[0].childNodes[0].nodeValue + "</td></tr>" +
-            "<tr><td>" + allTitles[i].getElementsByTagName("dttmShowStart")[0].childNodes[0].nodeValue + "</td></tr>";
-        
+            table += "<br>"
+            table += "<td>" + allTitles[i].getElementsByTagName("TheatreAndAuditorium")[0].childNodes[0].nodeValue  + "<br>"
             
+            //table += "<td>" + allTitles[i].getElementsByTagName("dttmShowStart")[0].childNodes[0].nodeValue + "</td></tr>";
+        
+            var timestring = allTitles[i].getElementsByTagName("dttmShowStart")[0].childNodes[0].nodeValue;
+  var bits = timestring.split("T");
+  var bits2 = bits[1].split(":")
+  var time = bits2[0]+":"+ bits2[1];
+
+
+  table += "Alkaa klo: " +time;
+  
+  table += "<br>"
+  table += "Ikäraja: "
+  table += allTitles[i].getElementsByTagName("Rating")[0].childNodes[0].nodeValue;
+  table += "</td></tr>";
             
             console.log(titleString);
             console.log(xmlDoc.getElementsByTagName("TheatreAndAuditorium")[i].childNodes[0].nodeValue);
             console.log(table);
+            document.getElementById("tableheader").innerHTML = tableheader;
             document.getElementById("table").innerHTML += table;
         }
           
