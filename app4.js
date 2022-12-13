@@ -46,6 +46,13 @@ for (let i = 0; i < alltitles.length; i++) {
   table += "<br>"
   table += "Ikäraja: "
   table += alltitles[i].getElementsByTagName("Rating")[0].childNodes[0].nodeValue;
+  table += "<br>"
+  table += "Genre: " +
+  alltitles[i].getElementsByTagName("Genres")[0].childNodes[0].nodeValue +
+  "<br>Kesto: " +
+  alltitles[i].getElementsByTagName("LengthInMinutes")[0].childNodes[0].nodeValue +
+  " min<br>Paikka: " + 
+  alltitles[i].getElementsByTagName("TheatreAuditorium")[0].childNodes[0].nodeValue;
   table += "</td></tr>";
 }
         document.getElementById("table").innerHTML += table;
@@ -53,15 +60,15 @@ for (let i = 0; i < alltitles.length; i++) {
         
     }}
 
-    function displayData(i) {
-        document.getElementById("showData").innerHTML =
-        "Genre: " +
-        alltitles[i].getElementsByTagName("Genres")[0].childNodes[0].nodeValue +
-        "<br>Kesto: " +
-        alltitles[i].getElementsByTagName("LengthInMinutes")[0].childNodes[0].nodeValue +
-        " min<br>Paikka: " + 
-        alltitles[i].getElementsByTagName("TheatreAuditorium")[0].childNodes[0].nodeValue;
-      }
+    //function displayData(i) {
+        //document.getElementById("showData").innerHTML =
+        //"Genre: " +
+        //alltitles[i].getElementsByTagName("Genres")[0].childNodes[0].nodeValue +
+        //"<br>Kesto: " +
+        //alltitles[i].getElementsByTagName("LengthInMinutes")[0].childNodes[0].nodeValue +
+        //" min<br>Paikka: " + 
+        //alltitles[i].getElementsByTagName("TheatreAuditorium")[0].childNodes[0].nodeValue;
+      //}
 
 
 
@@ -86,6 +93,7 @@ document.getElementById("ajaxbutton").addEventListener("click", searchData);
         //allTitles = xmlDoc.getElementsByTagName("Show")
 // clear table before getting new one
         document.getElementById("table").innerHTML = "";
+        document.getElementById("showData").innerHTML ="";
 // use getElementsByTagName to find titles in data 
 
     let input = document.getElementById("search").value;
