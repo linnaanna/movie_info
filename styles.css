@@ -26,13 +26,18 @@
     padding-top: 40px;
     background-color: rgb(210, 236, 244);
 }   
+
+li:hover {
+    cursor: pointer;
+}
+
 #tableheader {
     width: 500px; 
     align-items: center;
     position:absolute;
     left:300px;
     background:rgb(248, 187, 187); 
-    font-weight: bold;
+    
 }
 #table {
     
